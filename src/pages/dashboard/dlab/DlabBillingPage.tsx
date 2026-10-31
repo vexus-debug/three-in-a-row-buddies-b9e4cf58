@@ -2,8 +2,10 @@ import { useSearchParams } from "react-router-dom";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import LabRegisterPage from "./LabRegisterPage";
 import DlabStatementsPage from "./DlabStatementsPage";
+import BillingAgingView from "./billing/BillingAgingView";
 
 const TABS = [
+  { value: "aging", label: "A/R Aging" },
   { value: "statements", label: "Statements" },
   { value: "payments", label: "Payments Received" },
   { value: "prices", label: "Client Prices" },
@@ -12,7 +14,7 @@ const TABS = [
 
 export default function DlabBillingPage() {
   const [params, setParams] = useSearchParams();
-  const tab = params.get("tab") || "statements";
+  const tab = params.get("tab") || "aging";
 
   return (
     <Tabs value={tab} onValueChange={(v) => setParams({ tab: v })} className="space-y-5">
@@ -21,6 +23,7 @@ export default function DlabBillingPage() {
           <TabsTrigger key={t.value} value={t.value}>{t.label}</TabsTrigger>
         ))}
       </TabsList>
+      <TabsContent value="aging"><BillingAgingView /></TabsContent>
       <TabsContent value="statements"><DlabStatementsPage /></TabsContent>
       <TabsContent value="payments"><LabRegisterPage kind="client-payments" /></TabsContent>
       <TabsContent value="prices"><LabRegisterPage kind="client-prices" /></TabsContent>

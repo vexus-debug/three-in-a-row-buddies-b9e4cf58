@@ -13,6 +13,17 @@ export interface UpdateEntry {
 
 export const updates: UpdateEntry[] = [
   {
+    version: "v2.40.0",
+    date: "October 31, 2026",
+    title: "Dental lab A/R aging & payment reconciliation",
+    kind: "feature",
+    items: [
+      { kind: "feature", text: "A/R Aging tab in Billing: 0–30/31–60/61–90/90+ buckets per client, clickable filters, risk badges and CSV export." },
+      { kind: "feature", text: "Auto credit-hold flag when a client is over their credit limit or has anything 90+ days old." },
+      { kind: "feature", text: "Record lump-sum payments across several invoices with 'Apply oldest first' or a manual split; leftovers become credit on account." },
+    ],
+  },
+  {
     version: "v2.39.0",
     date: "October 31, 2026",
     title: "Dental lab itemised & consolidated invoicing",
